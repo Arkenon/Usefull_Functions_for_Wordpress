@@ -3,7 +3,7 @@
 Helper Name: Useful Functions for Wordpress
 Author: Kadim Gültekin
 Author URI: https://www.kadimgultekin.com
-Version: 1.0.0
+Version: 1.0.1
 */
 
 /**
@@ -101,7 +101,7 @@ function ufw_block_wp_admin(string $user_role) {
 *
 * @return string Content type "text/html"
 */
-add_filter( 'wp_mail_content_type', 'ufw__set_content_type' );
+add_filter( 'wp_mail_content_type', 'ufw_set_content_type' );
 function ufw_set_content_type() {
 	return "text/html";
 }
@@ -120,7 +120,7 @@ function ufw_set_content_type() {
 *
 * @return int Id of uploaded file (attachment_id)
 */
-function wp_multiple_handle_upload(string $file_name, int $i ) {
+function ufw_wp_multiple_handle_upload(string $file_name, int $i ) {
 	if ( ! function_exists( 'wp_handle_upload' ) ) {
 		require_once( ABSPATH . 'wp-admin/includes/file.php' );
 	}
@@ -160,7 +160,7 @@ function wp_multiple_handle_upload(string $file_name, int $i ) {
 *
 * @return int Id of uploaded file (attachment_id)
 */
-function wp_single_handle_upload( string $file_name ) {
+function ufw_wp_single_handle_upload( string $file_name ) {
 	if ( ! function_exists( 'wp_handle_upload' ) ) {
 		require_once( ABSPATH . 'wp-admin/includes/file.php' );
 	}
@@ -196,7 +196,7 @@ function wp_single_handle_upload( string $file_name ) {
 *
 * @return int Id of uploaded file (attachment_id)
 */
-function wp_get_menu_array($current_menu) {
+function ufw_wp_get_menu_array($current_menu) {
 
 	$menu_array = wp_get_nav_menu_items($current_menu);
 
